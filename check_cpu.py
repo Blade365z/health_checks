@@ -18,7 +18,7 @@ def check_memory_usage():
         splitline = line.decode().split()
         if splitline[5] == partition:
             if int(splitline[4][:-1]) > threshold:
-                print('Low disk space warning')
+                print('Low disk space alert')
 
 cpu_utilization()
 check_memory_usage()
