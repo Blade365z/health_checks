@@ -1,9 +1,21 @@
 import os
 import psutil
 import subprocess
+import socket
+
 
 threshold_value=40
 partition="/"
+
+def check_no_network():
+    """Returns true if it fails to resolve Google;s url , false otherwise"""
+    try:
+        socket.gethostbyname("www.google.com")
+        print('Network working')
+        return False 
+    except:
+        return True
+
 
 def cpu_utilization():
     pid = os.getpid()
@@ -22,5 +34,5 @@ def check_memory_usage():
 
 cpu_utilization()
 check_memory_usage()
-
+check_no_network()
 
