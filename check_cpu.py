@@ -2,7 +2,7 @@ import os
 import psutil
 import subprocess
 
-threshold=40
+threshold_value=40
 partition="/"
 
 def cpu_utilization():
@@ -17,7 +17,7 @@ def check_memory_usage():
      for line in df.stdout:
         splitline = line.decode().split()
         if splitline[5] == partition:
-            if int(splitline[4][:-1]) > threshold:
+            if int(splitline[4][:-1]) > threshold_value:
                 print('Low disk space alert')
 
 cpu_utilization()
