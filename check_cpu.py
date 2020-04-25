@@ -1,9 +1,14 @@
 import os
 import psutil
 import subprocess
+import platform
 
 threshold_value=40
 partition="/"
+
+def os_specs():
+    print(platform.system(),'  ',platform.release())
+
 
 def cpu_utilization():
     pid = os.getpid()
@@ -20,6 +25,7 @@ def check_memory_usage():
             if int(splitline[4][:-1]) > threshold_value:
                 print('Low disk space alert')
 
+os_specs()
 cpu_utilization()
 check_memory_usage()
 
